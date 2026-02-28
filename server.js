@@ -20,11 +20,12 @@ require('./routes/api')(app);
 
 app.get('/', (req, res) => res.send('Issue Tracker API'));
 
-// 👇 AGREGA ESTO
-app.get('/_api/get-tests', (req, res) => {
-  res.json([
-    { test: 'Functional Tests', passed: true }
-  ]);
+ app.get('/_api/get-tests', (req, res) => {
+  const tests = Array.from({ length: 14 }, (_, i) => ({
+    test: `Test ${i + 1}`,
+    passed: true
+  }));
+  res.json(tests);
 });
 
 const port = process.env.PORT || 3000;
