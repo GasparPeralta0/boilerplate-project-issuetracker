@@ -36,8 +36,7 @@ require('./routes/api')(app);
 
 // ✅ Home
 app.get('/', (req, res) => {
-  // si tienes index.pug en views, esto es lo correcto:
-  res.render('index');
+  res.sendFile(process.cwd() + '/views/index.html');
 });
 
 const port = process.env.PORT || 3000;
