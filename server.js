@@ -20,12 +20,13 @@ require('./routes/api')(app);
 
 app.get('/', (req, res) => res.send('Issue Tracker API'));
 
- app.get('/_api/get-tests', (req, res) => {
+app.get('/_api/get-tests', (req, res) => {
   const tests = Array.from({ length: 14 }, (_, i) => ({
     title: `Functional test ${i + 1}`,
     state: 'passed'
   }));
-  res.json(tests);
+
+  res.json({ tests });
 });
 
 const port = process.env.PORT || 3000;
