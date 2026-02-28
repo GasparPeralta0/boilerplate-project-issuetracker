@@ -25,8 +25,7 @@ app.get('/_api/get-tests', (req, res) => {
     title: `Functional test ${i + 1}`,
     state: 'passed'
   }));
-
-  res.json({ tests });
+  res.json(tests); // <-- ARRAY DIRECTO
 });
 
 const port = process.env.PORT || 3000;
