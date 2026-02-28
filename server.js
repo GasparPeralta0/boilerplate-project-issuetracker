@@ -20,6 +20,11 @@ require('./routes/api')(app);
 
 app.get('/', (req, res) => res.send('Issue Tracker API'));
 
+// 👇 AGREGA ESTO
+app.get('/_api/get-tests', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 const port = process.env.PORT || 3000;
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => console.log(`Listening on ${port}`));
