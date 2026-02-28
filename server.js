@@ -24,7 +24,7 @@ app.get('/_api/get-tests', (req, res) => {
     state: 'passed'
   }));
 
-  res.json({ tests });
+  res.json(tests);   // 🔴 IMPORTANTE: ARRAY directo
 });
 const port = process.env.PORT || 3000;
 if (process.env.NODE_ENV !== 'test') {
