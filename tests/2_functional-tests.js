@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const assert = chai.assert;
 
-const server = process.env.TEST_URL || 'http://localhost:3000';
+const server = process.env.TEST_URL ? process.env.TEST_URL : require('../server');
 
 chai.use(chaiHttp);
 

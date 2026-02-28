@@ -12,9 +12,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ Boilerplate UI
+// Static assets
 app.use('/public', express.static(process.cwd() + '/public'));
-app.set('views', process.cwd() + '/views');
-app.set('view engine', 'pug');
+
+// Home page
+app.get('/', (req, res) => {
+  res.sendFile(process.cwd() + '/views/index.html');
+});
+
+// Project page: /apitest etc.
+app.get('/:project', (req, res) => {
+  res.sendFile(process.cwd() + '/views/issue.html');
+});;
 
 // ✅ Mongo
 if (process.env.MONGO_URI) {
