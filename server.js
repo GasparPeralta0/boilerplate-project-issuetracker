@@ -10,8 +10,7 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const mongoose = require('mongoose');
+ 
 mongoose.connect(process.env.MONGO_URI, { dbName: process.env.DB_NAME || undefined })
   .then(() => console.log('Mongo connected'))
   .catch(err => console.error('Mongo error', err));
